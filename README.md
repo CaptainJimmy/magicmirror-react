@@ -38,5 +38,9 @@ Should you like to host the file locally on your Pi, this starts a lightweight H
 
 ``` $ npm run server ``` 
 
+You then can spin up a browser:
+
+``` $ chromium-browser --kiosk http://localhost:3000/```
+
 
 
