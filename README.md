@@ -26,9 +26,17 @@ install the libraries:
 ``` $ npm install ```
 
 Start Development:
-``` $ npm run client ```
+``` $ npm start ```
 
 ### Build for deploy
 
 ``` $ npm run build ```
+
+Your build folder is ready for deployment, or local hosting with Express.
+
+Should you like to host the file locally on your Pi, this starts a lightweight HTTP server on port 3000:
+
+``` $ npm run server ``` 
+
+
 
