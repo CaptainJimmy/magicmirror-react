@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Flexbox from 'flexbox-react'
+import { Grid, Row, Col } from 'react-bootstrap'
+import TopThird from './Components/Rows/TopThird';
+import MiddleThird from './Components/Rows/MiddleThird';
+import BottomThird from './Components/Rows/BottomThird';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-      
-      </div>
+      <Grid fluid>
+        <TopThird/>
+
+        <MiddleThird/>
+
+        <BottomThird/>
+      </Grid>
     );
   }
 }
