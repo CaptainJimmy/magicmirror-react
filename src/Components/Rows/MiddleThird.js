@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, Button, utils } from 'react-bootstrap'
 import './rows.css'
+import API from '../../utils/API'
 
 class MiddleThird extends Component {
     colStyleLeft = {
@@ -18,13 +19,18 @@ class MiddleThird extends Component {
         backgroundColor: 'yellow',
         height: '700px',
     }
+    getWUAPI = () =>{
+        API.getWU();
+    }
     render() {
         return (
             <Row className="middleThird">
                 <Col xs={3} style={this.colStyleLeft}>
                     <h1 className="text-center"> MIDDLE LEFT </h1>
-                    <p>Tumblr organic truffaut gentrify echo park next level meh put a bird on it. Blue bottle affogato truffaut occupy, etsy whatever activated charcoal offal kickstarter direct trade ramps PBR&B chambray echo park squid. Ethical keffiyeh typewriter, marfa beard quinoa locavore cray direct trade. Retro woke skateboard squid, chia normcore quinoa scenester artisan vice farm-to-table four dollar toast kale chips. Kitsch enamel pin seitan whatever. Listicle etsy jean shorts la croix, tacos taiyaki dreamcatcher disrupt meh raclette slow-carb yuccie. Stumptown occupy tbh gentrify cred leggings bushwick.</p>
-                    <p> Irony poke chillwave bespoke 8-bit keytar lo-fi butcher craft beer deep v XOXO flannel. Biodiesel kickstarter craft beer enamel pin put a bird on it. Narwhal hammock snackwave +1 letterpress paleo jianbing bespoke franzen kombucha pickled hot chicken health goth. Beard neutra shaman, seitan authentic paleo fashion axe jean shorts before they sold out photo booth activated charcoal. Brunch butcher etsy, 8-bit snackwave four loko echo park copper mug XOXO. Waistcoat activated charcoal scenester microdosing prism selvage, 8-bit hashtag you probably haven't heard of them lyft raclette gluten-free 90's iPhone banjo. </p>
+                    <Button 
+                    onClick={this.getWUAPI}
+                    bsSize="large" 
+                    bsStyle="info"> Get WU </Button>
                 </Col>
                 <Col xs={6} style={this.colStyleCenter}>
                     <h1 className="text-center"> MIDDLE CENTER </h1>
