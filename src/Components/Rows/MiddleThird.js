@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, Button, utils } from 'react-bootstrap'
 import './rows.css'
-import API from '../../utils/API'
+import API from '../../Utils/API'
 
 class MiddleThird extends Component {
     colStyleLeft = {
