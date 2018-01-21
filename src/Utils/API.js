@@ -1,5 +1,5 @@
 import axios from 'axios'
-import APIKEYS from './APIKEYS'
+import APIKEYS from './APIKEYS'  //create this file by copying ./config.js to ./APIKEYS.js.  The APIKEYS.js is in the gitignore or point this at './config'
 
 export default {
     getMagicSeaweed: () => {
