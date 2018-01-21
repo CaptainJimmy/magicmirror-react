@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Grid, Row, Col } from 'react-bootstrap'
-import TopThird from './Components/Rows/TopThird';
+import { Grid } from 'react-bootstrap'
+import TopBar from './Components/Rows/TopBar';
 import MiddleThird from './Components/Rows/MiddleThird';
-import BottomThird from './Components/Rows/BottomThird';
+import BottomBar from './Components/Rows/BottomBar';
 
 class App extends Component {
   render() {
     return (
       <Grid fluid>
-        <TopThird/>
+        <TopBar/>
 
         <MiddleThird/>
 
-        <BottomThird/>
+        <BottomBar/>
       </Grid>
     );
   }
 }
 
 export default App;
+ 

@@ -1,10 +1,10 @@
 
-.topThird {
-    height: 300px;
+.topBar {
+    height:150px;
 }
 .middleThird {
-    height: 300px;
+    height: 600px;
 }
-.bottomThird {
-    height: 300px;
+.bottomBar {
+    height:150px;
 }
