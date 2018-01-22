@@ -3,6 +3,7 @@ import { Row, Col } from 'react-bootstrap'
 import './rows.css'
 
 import RMMMSurf from '../Modules/RMMMSurf';
+import CurrentWeather from '../Modules/CurrentWeather'
 
 
 class MiddleThird extends Component {
@@ -18,8 +19,8 @@ class MiddleThird extends Component {
         height: '700px',
     }
     colStyleRight = {
-        color: 'black',
-        backgroundColor: 'yellow',
+        color: 'white',
+        backgroundColor: 'black',
         height: '700px',
     }
 
@@ -40,9 +41,7 @@ class MiddleThird extends Component {
                 </Col>
 
                 <Col xs={3} style={this.colStyleRight}>
-                    <h1 className="text-center"> MIDDLE RIGHT </h1>
-                    <p>Tumblr organic truffaut gentrify echo park next level meh put a bird on it. Blue bottle affogato truffaut occupy, etsy whatever activated charcoal offal kickstarter direct trade ramps PBR&B chambray echo park squid. Ethical keffiyeh typewriter, marfa beard quinoa locavore cray direct trade. Retro woke skateboard squid, chia normcore quinoa scenester artisan vice farm-to-table four dollar toast kale chips. Kitsch enamel pin seitan whatever. Listicle etsy jean shorts la croix, tacos taiyaki dreamcatcher disrupt meh raclette slow-carb yuccie. Stumptown occupy tbh gentrify cred leggings bushwick.</p>
-                    <p> Irony poke chillwave bespoke 8-bit keytar lo-fi butcher craft beer deep v XOXO flannel. Biodiesel kickstarter craft beer enamel pin put a bird on it. Narwhal hammock snackwave +1 letterpress paleo jianbing bespoke franzen kombucha pickled hot chicken health goth. Beard neutra shaman, seitan authentic paleo fashion axe jean shorts before they sold out photo booth activated charcoal. Brunch butcher etsy, 8-bit snackwave four loko echo park copper mug XOXO. Waistcoat activated charcoal scenester microdosing prism selvage, 8-bit hashtag you probably haven't heard of them lyft raclette gluten-free 90's iPhone banjo. </p>
+                    <CurrentWeather />
                 </Col>
             </Row>
         );

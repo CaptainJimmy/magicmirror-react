@@ -4,7 +4,7 @@ import API from '../../Utils/API'
 import APIKEYS from '../../Utils/APIkeys'
 
 
-class RMMMSurf extends Component {
+class CurrentWeather extends Component {
     state = {
         timerRunning: false,
         timerInterval: null,
@@ -36,28 +36,16 @@ class RMMMSurf extends Component {
         setInterval(this.runAPIs(),this.state.timerIntervalMS)  //starts the API pulls
     }
 
+   
     runAPIs = () => {
-
-        API.getWU().then( results => {
-            console.log("WU",results.data)
+        API.getCurrentOpenWeather().then( results => {
+            console.log("currentOpen",results.data)
         }).catch(err=>{
             if (err) throw err;
         })
 
-        API.getNOAAtemperature().then( results => {
-            console.log("temp",results.data)
-        }).catch(err=>{
-            if (err) throw err;
-        })
-
-        API.getNOAAtides().then( results => {
-            console.log("tide",results.data)
-        }).catch(err=>{
-            if (err) throw err;
-        })
-
-        API.getMagicSeaweed().then( results => {
-            console.log("seaweed",results)
+        API.getForecastedOpenWeather().then( results => {
+            console.log("forecastOpen",results.data)
         }).catch(err=>{
             if (err) throw err;
         })
@@ -79,4 +67,4 @@ class RMMMSurf extends Component {
     }
 }
 
-export default RMMMSurf;
+export default CurrentWeather;

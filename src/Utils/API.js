@@ -34,5 +34,22 @@ export default {
         return (
             axios.get(NOAAtideURL)
         )
+    },
+    getCurrentOpenWeather: () => {
+        let openWeatherURL = encodeURI("https://api.openweathermap.org/data/2.5/weather?q="+APIkeys.openWeatherCity+"&appid="+APIkeys.openWeatherKey+"&mode=json")
+        console.log(openWeatherURL)
+
+        return (
+            axios.get(openWeatherURL)
+        )
+
+    },
+    getForecastedOpenWeather: () => {
+        let openWeatherURL = encodeURI("https://api.openweathermap.org/data/2.5/forecast/daily?q="+APIkeys.openWeatherCity+"&appid="+APIkeys.openWeatherKey+"&mode=json&cnt=5");
+        console.log(openWeatherURL);
+        return (
+            axios.get(openWeatherURL)
+        )
+
     }
 }

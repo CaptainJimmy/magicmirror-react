@@ -5,5 +5,7 @@ export default {
     WUPWS:"",
     NOAAstationID: "", //Numeric station ID from NOAA
     NOAATZ: "",
-    timerIntervalMinutes: 5
+    timerIntervalMinutes: 5,
+    openWeatherKey: "",
+    openWeatherCity: ""
 }
