@@ -4,18 +4,21 @@
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
+    "concurrently": "^3.5.1",
     "cors": "^2.8.4",
     "express": "^4.16.2",
+    "moment": "^2.20.1",
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "client": "react-scripts start",
+    "start": "concurrently \"nodemon APIserver.js\" \"npm run client\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "server": "node server.js"
+    "server": "nodemon APIserver.js"
   }
 }

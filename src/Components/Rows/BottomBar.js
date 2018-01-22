@@ -11,7 +11,7 @@ class BottomBar extends Component {
     }
     render() {
         return (
-            <Row fluid className="bottomBar">
+            <Row className="bottomBar">
                 <Navbar fixedBottom style={this.bottomBarStyle}>
                     <Nav>
                         <NavItem>

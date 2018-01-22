@@ -13,7 +13,7 @@ class TopBar extends Component {
     render() {
         return (
   
-            <Row fluid className="topBar" >
+            <Row className="topBar" >
                 <Navbar fixedTop  style={this.topBarStyle}>
                     <Nav>
                         <NavItem>

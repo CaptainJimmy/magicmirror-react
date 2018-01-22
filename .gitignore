@@ -37,7 +37,8 @@ node_modules/
 jspm_packages/
 
 # API KEYS
-src/Utils/APIKEYS.js
+src/Utils/APIkeys.js
+APIkeys.js
 
 # Typescript v1 declaration files
 typings/
