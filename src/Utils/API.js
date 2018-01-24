@@ -36,7 +36,7 @@ export default {
         )
     },
     getCurrentOpenWeather: () => {
-        let openWeatherURL = encodeURI("https://api.openweathermap.org/data/2.5/weather?q="+APIkeys.openWeatherCity+"&appid="+APIkeys.openWeatherKey+"&mode=json")
+        let openWeatherURL = encodeURI("https://api.openweathermap.org/data/2.5/weather?q=" + APIkeys.openWeatherCity + "&appid=" + APIkeys.openWeatherKey +"&mode=json&units=imperial")
         console.log(openWeatherURL)
 
         return (
@@ -45,7 +45,7 @@ export default {
 
     },
     getForecastedOpenWeather: () => {
-        let openWeatherURL = encodeURI("https://api.openweathermap.org/data/2.5/forecast/daily?q="+APIkeys.openWeatherCity+"&appid="+APIkeys.openWeatherKey+"&mode=json&cnt=5");
+        let openWeatherURL = encodeURI("https://api.openweathermap.org/data/2.5/forecast/daily?q=" + APIkeys.openWeatherCity + "&appid=" + APIkeys.openWeatherKey +"&mode=json&cnt=5&units=imperial");
         console.log(openWeatherURL);
         return (
             axios.get(openWeatherURL)

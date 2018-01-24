@@ -5,7 +5,8 @@ import './rows.css'
 
 class TopBar extends Component {
     topBarStyle={
-        backgroundColor:'green'
+        backgroundColor:'black',
+        borderBottom: 0
     }
     logoStyle={
         color: 'white'
@@ -17,7 +18,6 @@ class TopBar extends Component {
                 <Navbar fixedTop  style={this.topBarStyle}>
                     <Nav>
                         <NavItem>
-                            <h1 className="text-center" style={this.logoStyle}> Top Bar!</h1>
                         </NavItem>
                     </Nav>
                 </Navbar>

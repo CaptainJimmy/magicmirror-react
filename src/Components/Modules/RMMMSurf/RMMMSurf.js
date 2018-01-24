@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Row, Grid, Button } from 'react-bootstrap'
-import API from '../../Utils/API'
-import APIKEYS from '../../Utils/APIkeys'
+import API from '../../../Utils/API'
+import APIKEYS from '../../../Utils/APIkeys'
 
 
-class CurrentWeather extends Component {
+class RMMMSurf extends Component {
     state = {
         timerRunning: false,
         timerInterval: null,
@@ -36,16 +36,28 @@ class CurrentWeather extends Component {
         setInterval(this.runAPIs(),this.state.timerIntervalMS)  //starts the API pulls
     }
 
-   
     runAPIs = () => {
-        API.getCurrentOpenWeather().then( results => {
-            console.log("currentOpen",results.data)
+
+        API.getWU().then( results => {
+            console.log("WU",results.data)
         }).catch(err=>{
             if (err) throw err;
         })
 
-        API.getForecastedOpenWeather().then( results => {
-            console.log("forecastOpen",results.data)
+        API.getNOAAtemperature().then( results => {
+            console.log("temp",results.data)
+        }).catch(err=>{
+            if (err) throw err;
+        })
+
+        API.getNOAAtides().then( results => {
+            console.log("tide",results.data)
+        }).catch(err=>{
+            if (err) throw err;
+        })
+
+        API.getMagicSeaweed().then( results => {
+            console.log("seaweed",results)
         }).catch(err=>{
             if (err) throw err;
         })
@@ -67,4 +79,4 @@ class CurrentWeather extends Component {
     }
 }
 
-export default CurrentWeather;
+export default RMMMSurf;

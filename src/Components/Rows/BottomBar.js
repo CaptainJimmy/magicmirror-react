@@ -4,10 +4,12 @@ import './rows.css'
 
 class BottomBar extends Component {
     bottomBarStyle={
-        backgroundColor:'green'
+        backgroundColor:'black',
+        borderTop: 0
     }
     logoStyle={
-        color: 'white'
+        color: 'white',
+        borderTop: 0
     }
     render() {
         return (
@@ -15,7 +17,7 @@ class BottomBar extends Component {
                 <Navbar fixedBottom style={this.bottomBarStyle}>
                     <Nav>
                         <NavItem>
-                            <h1 className="text-center" style={this.logoStyle}> Bottom Bar!</h1>
+
                         </NavItem>
                     </Nav>
                 </Navbar>
