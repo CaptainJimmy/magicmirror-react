@@ -12,7 +12,7 @@ export default {
     },
     getWU: () => {
         let WUURL = encodeURI("http://api.wunderground.com/api/"+APIkeys.WUAPIKey+"/conditions/hourly/forecast10day/astronomy/alerts/lang:EN/q/pws:"+APIkeys.WUPWS+".json")
-
+        console.log(WUURL)
         return (
             axios.get(WUURL)
         )

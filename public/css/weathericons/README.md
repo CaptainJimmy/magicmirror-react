@@ -1,5 +1,4 @@
 # Weather Icons
-*Version 2.0.10 - September 19th, 2015*
 
 ## 222 Weather Themed Icons and CSS
 
@@ -15,7 +14,7 @@ Place the 5 font files and the main `weather-icons.min.css` file in your project
 
 The icons are displayed by using an `i` element and adding the base class `wi` and then the icon class you want, such as `day-sunny`. This then looks like `<i class="wi wi-day-sunny"></i>`.
 
-To add a modifier, include the class you want after the icon name, which looks like `<i class="wi wi-day-sunny wi-flip-vertical"></i>`. You can flip, rotate, or add a fixed with. See it all at [http://weathericons.io](http://weathericons.io).
+To add a modifier, include the class you want after the icon name, which looks like `<i class="wi wi-day-sunny wi-flip-vertical"></i>`. You can flip, rotate, or add a fixed width. See it all at [http://weathericons.io](http://weathericons.io).
 
 ## API Usage
 
@@ -38,6 +37,3 @@ The icon designs are originally by [Lukas Bischoff](http://www.twitter.com/artil
 * Weather Icons licensed under [SIL OFL 1.1](http://scripts.sil.org/OFL)
 * Code licensed under [MIT License](http://opensource.org/licenses/mit-license.html)
 * Documentation licensed under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0)
-
-## Contact
-Weather Icons is maintained by Erik Flowers. Reach me at [@Erik_UX](http://www.twitter.com/Erik_UX) or at [http://www.helloerik.com](http://www.helloerik.com).

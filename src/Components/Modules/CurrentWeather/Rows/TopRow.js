@@ -14,4 +14,4 @@ const topRow = (props) => {
             </Col>
     )
 }
-export { topRow as TopRow} ;
+export { topRow as TopRow } ;

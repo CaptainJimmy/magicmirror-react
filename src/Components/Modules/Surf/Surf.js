@@ -4,7 +4,7 @@ import API from '../../../Utils/API'
 import APIKEYS from '../../../Utils/APIkeys'
 
 
-class RMMMSurf extends Component {
+class Surf extends Component {
     state = {
         timerRunning: false,
         timerInterval: null,
@@ -79,4 +79,4 @@ class RMMMSurf extends Component {
     }
 }
 
-export default RMMMSurf;
+export default Surf;

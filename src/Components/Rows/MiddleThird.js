@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap'
 import './rows.css'
 
-import RMMMSurf from '../Modules//RMMMSurf/RMMMSurf';
-import CurrentWeather from '../Modules//CurrentWeather/CurrentWeather'
+import Surf from '../Modules//Surf/Surf';
+import CurrentWeather from '../Modules//CurrentWeather/CurrentWeather';
+import Wunderground from '../Modules/Wunderground/Wunderground'
 
 
 class MiddleThird extends Component {
@@ -28,15 +29,13 @@ class MiddleThird extends Component {
     render() {
         return (
             <Row className="middleThird">
-                <Col xs={3} style={this.colStyleLeft}>
-                      <RMMMSurf />  
+                <Col xs={4} style={this.colStyleLeft}>
+                      <Surf />  
                 </Col>
-                <Col xs={1} />
                 <Col xs={4} style={this.colStyleCenter}>
-                    <p> news goes here </p>
+                    <Wunderground />
                 </Col>
-                <Col xs={1} />
-                <Col xs={3} style={this.colStyleRight}>
+                <Col xs={4} style={this.colStyleRight}>
                     <CurrentWeather />
                 </Col>
             </Row>
