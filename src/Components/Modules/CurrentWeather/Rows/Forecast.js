@@ -1,5 +1,5 @@
 import React from 'react';
-import {Row, Col} from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import Moment from 'react-moment';
 
 const forecast = (props) => (
@@ -9,7 +9,7 @@ const forecast = (props) => (
                 return (
                     <div key={item.dt}>
                         <h4> <Moment date={item.dt} format="dd" /> High: {parseInt(item.temp.max, 10)}&deg;F Low:{parseInt(item.temp.max, 10)}&deg;F 
-                            <img src={encodeURI("http://openweathermap.org/img/w/" + item.weather[0].icon + ".png")} />
+                            <img src={encodeURI("http://openweathermap.org/img/w/" + item.weather[0].icon + ".png")}  alt={item.weather[0].icon}  />
                         </h4>
                     </div>
                 )           

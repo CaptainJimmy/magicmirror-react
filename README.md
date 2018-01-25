@@ -46,5 +46,15 @@ You then can spin up a browser:
 
 ``` $ chromium-browser --kiosk http://localhost:3001/```
 
+## Current Screenshot:
+![image](screen.png)
 
+## Modules Currently 'Ported'
+
+Ported might bw a loose term.  The 'Modules' have zero original code. The only original files is the  images/clipart and idea/layout. 
+
+#### MMM-Wunderground 
+[https://github.com/RedNax67/MMM-WunderGround](https://github.com/RedNax67/MMM-WunderGround)
+
+#### CurrentWeather / OpenWeatherApp
 

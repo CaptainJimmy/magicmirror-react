@@ -29,13 +29,15 @@ class MiddleThird extends Component {
     render() {
         return (
             <Row className="middleThird">
-                <Col xs={4} style={this.colStyleLeft}>
-                      <Surf />  
+                <Col xs={3} style={this.colStyleLeft}>
+                    <Surf />  
                 </Col>
-                <Col xs={4} style={this.colStyleCenter}>
+                <Col xs={1} />
+                <Col xs={3} style={this.colStyleCenter}>
                     <Wunderground />
                 </Col>
-                <Col xs={4} style={this.colStyleRight}>
+                <Col xs={2} />
+                <Col xs={3} style={this.colStyleRight}>
                     <CurrentWeather />
                 </Col>
             </Row>

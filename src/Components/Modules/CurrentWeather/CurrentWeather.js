@@ -18,7 +18,6 @@ class CurrentWeather extends Component {
 
     componentDidMount(){
         this.setState({timerInterval: APIKEYS.timerIntervalMinutes}, ()=>{
-            console.log("component mounted, state updated: ",this.state.timerInterval)
             this.startTimer();
         })
         
@@ -26,12 +25,9 @@ class CurrentWeather extends Component {
 
     startTimer = () => {
         let timer = this.state.timerInterval*60000         //convert minutes to milliseconds
-        console.log(`timer: ${timer}`)
         if (typeof timer === "number") {   //makes sure timer is a number
-            console.log("is number")
             this.setState({timerRunning: true, timerIntervalMS: timer}, function(){
                 this.timerHandler()
-                console.log("timer is running")
             })
         }
         
@@ -44,7 +40,6 @@ class CurrentWeather extends Component {
    //this fires off the API get routines and loads the data into state
     runAPIs = () => {
         API.getCurrentOpenWeather().then( results => {
-            console.log("currentOpen",results.data)
             let newWeather = {...this.state.weather}
             newWeather.current=results.data
             this.setState({weather: newWeather}, ()=>{console.log("state updated with current weather", this.state.weather.current)})
@@ -53,10 +48,9 @@ class CurrentWeather extends Component {
         })
 
         API.getForecastedOpenWeather().then( results => {
-            console.log("forecastOpen",results.data)
             let newWeather = { ...this.state.weather }
             newWeather.forecast = results.data.list;
-            this.setState({ weather: newWeather }, () => { console.log("state updated with forecasted weather", this.state.weather.forecast) })
+            this.setState({ weather: newWeather }, () => {console.log("state updated with forecasted weather", this.state.weather.forecast) })
         }).catch(err=>{
             if (err) throw err;
         })
