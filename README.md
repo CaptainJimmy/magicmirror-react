@@ -52,15 +52,20 @@ You then can spin up a browser:
 
 ## Modules Currently 'Ported'
 
-Ported might bw a loose term.  The 'Modules' have zero original code. The only original files is the  images/clipart and idea/layout. 
+Ported might be a loose term.  The 'Modules' have zero original code. The only original files is the  images/clipart and idea/layout. 
 
 #### MMM-Wunderground 
 ### Complete
-[https://github.com/RedNax67/MMM-WunderGround](https://github.com/RedNax67/MMM-WunderGround)
+Original Link: [https://github.com/RedNax67/MMM-WunderGround](https://github.com/RedNax67/MMM-WunderGround)
 
 #### CurrentWeather / OpenWeatherApp
-### Complete[https://github.com/MichMich/MagicMirror/tree/master/modules/default/currentweather](https://github.com/MichMich/MagicMirror/tree/master/modules/default/currentweather)
+### Complete 
+Original Link:[https://github.com/MichMich/MagicMirror/tree/master/modules/default/currentweather](https://github.com/MichMich/MagicMirror/tree/master/modules/default/currentweather)
 
 #### MMM-Surf
 ### In Progress
-[https://github.com/Privacywonk/MMM-Surf](https://github.com/Privacywonk/MMM-Surf)
+Original Link: [https://github.com/Privacywonk/MMM-Surf](https://github.com/Privacywonk/MMM-Surf)
+
+#### Newsfeed
+### Not Started Yet
+Original Link: [https://github.com/MichMich/MagicMirror/tree/master/modules/default/newsfeed](https://github.com/MichMich/MagicMirror/tree/master/modules/default/newsfeed)
