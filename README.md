@@ -1,4 +1,5 @@
 # magicmirror-react
+## Updated 01/26/2018
 
 ## This is a re-design of the Magic Mirror project to make installation, deployment, and custom modules / components much easier.
 
@@ -54,7 +55,12 @@ You then can spin up a browser:
 Ported might bw a loose term.  The 'Modules' have zero original code. The only original files is the  images/clipart and idea/layout. 
 
 #### MMM-Wunderground 
+### Complete
 [https://github.com/RedNax67/MMM-WunderGround](https://github.com/RedNax67/MMM-WunderGround)
 
 #### CurrentWeather / OpenWeatherApp
-[https://github.com/MichMich/MagicMirror/tree/master/modules/default/currentweather](https://github.com/MichMich/MagicMirror/tree/master/modules/default/currentweather)
+### Complete[https://github.com/MichMich/MagicMirror/tree/master/modules/default/currentweather](https://github.com/MichMich/MagicMirror/tree/master/modules/default/currentweather)
+
+#### MMM-Surf
+### In Progress
+[https://github.com/Privacywonk/MMM-Surf](https://github.com/Privacywonk/MMM-Surf)
