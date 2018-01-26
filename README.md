@@ -57,4 +57,4 @@ Ported might bw a loose term.  The 'Modules' have zero original code. The only o
 [https://github.com/RedNax67/MMM-WunderGround](https://github.com/RedNax67/MMM-WunderGround)
 
 #### CurrentWeather / OpenWeatherApp
-
+[https://github.com/MichMich/MagicMirror/tree/master/modules/default/currentweather](https://github.com/MichMich/MagicMirror/tree/master/modules/default/currentweather)

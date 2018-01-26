@@ -8,8 +8,8 @@ const textForecast = (props) => {
     <HOC>
         <hr />
         <Col>
-            <h1> {props.forecast.txt_forecast.forecastday[0].fcttext}
-            </h1>
+            <h3> {props.forecast.txt_forecast.forecastday[0].fcttext}
+            </h3>
         </Col>
     </HOC>
 )

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Row } from 'react-bootstrap';
-import { TopRow, TextForecast, FourHour, DailyForecast, CurrentConditions } from './Rows'
+import { TopRow, TextForecast, PeriodicForecast, DailyForecast, CurrentConditions } from './Rows'
 import API from '../../../Utils/API'
 import APIKEYS from '../../../Utils/APIkeys'
 import moment from 'moment';
 import HOC from '../../HOC/HOC'
+import config from './config'
 
 
 class Wunderground extends Component {
@@ -69,6 +70,27 @@ class Wunderground extends Component {
             else {
                 newWeather.daytime = false;
             }
+            newWeather.forecastDaily = [];
+            results.data.forecast.simpleforecast.forecastday.map( (item,index)=> {
+                if (newWeather.forecastDaily.length < 4) {
+                    console.log(`Pushing Item at ${index}, array is length: ${newWeather.forecastDaily.length}`)
+                    newWeather.forecastDaily.push(item)
+                    return true
+                }
+                else return false
+            })
+            //for (let i = 0; i<4; i++) {
+            //     newWeather.forecastDaily.push(results.data.forecast.simpleforecast.forecastday[i])
+            // }
+            newWeather.forecastPeriodic = [];
+            results.data.hourly_forecast.map( (item,index) => {
+                if (config.periodicHours.indexOf(item.FCTTIME.hour) !== -1 && newWeather.forecastPeriodic.length < 4) {
+                    console.log(`Pushing Item ${item.FCTTIME.hour} check good, at ${index} to forecastPeriodic with length = ${newWeather.forecastPeriodic.length}`);
+                    newWeather.forecastPeriodic.push(item)
+                    return true
+                }
+                else return false
+            })
 
             this.setState({ 
                 weather: newWeather, 
@@ -88,26 +110,26 @@ class Wunderground extends Component {
                     { this.state.weather.currentObservation ? ( 
                     <HOC>
                         <TopRow 
-                        weather={this.state.weather} 
-                        beaufort={this.state.weather.beaufort}
-                        style={this.styles}
-                        daytime={this.state.weather.daytime}
-                        sunset={this.state.weather.sunset}
-                        sunrise={this.state.weather.sunrise} />
+                            weather={this.state.weather} 
+                            beaufort={this.state.weather.beaufort}
+                            style={this.styles}
+                            daytime={this.state.weather.daytime}
+                            sunset={this.state.weather.sunset}
+                            sunrise={this.state.weather.sunrise} />
 
                         <CurrentConditions 
-                        weather={this.state.weather.currentObservation}
-                        daytime={this.state.weather.daytime} />
+                            weather={this.state.weather.currentObservation}
+                            daytime={this.state.weather.daytime} />
                     </HOC>) : null}
 
                     { this.state.weather.forecast? ( 
-                    <TextForecast 
-                    forecast={this.state.weather.forecast} /> ) : null }
+                    <TextForecast forecast={this.state.weather.forecast} /> ) : null }
 
-                    <FourHour
-                        weather={this.state.weather} />
-                    <DailyForecast
-                    weather={this.state.weather.forecast} /> 
+                    { this.state.isWeatherPopulated ?
+                        (<PeriodicForecast forecast={this.state.weather.forecastPeriodic} />) : null }
+
+                    {this.state.isWeatherPopulated ?
+                        (<DailyForecast forecast={this.state.weather.forecastDaily} />) : null }
             </Row>
         );
     }

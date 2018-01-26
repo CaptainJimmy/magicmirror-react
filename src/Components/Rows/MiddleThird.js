@@ -12,17 +12,14 @@ class MiddleThird extends Component {
     colStyleLeft = {
         color: 'white',
         backgroundColor: 'black',
-        height: '700px',
     }
     colStyleCenter = {
         color: 'white',
         backgroundColor: 'black',
-        height: '700px',
     }
     colStyleRight = {
         color: 'white',
         backgroundColor: 'black',
-        height: '700px',
     }
 
   
