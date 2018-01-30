@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Row, Grid, Button } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 import API from '../../../Utils/API'
 import APIKEYS from '../../../Utils/APIkeys'
+import moment from 'moment'
+import { TopRow } from './Rows/TopRow';
 
 
 class Surf extends Component {
@@ -9,6 +11,10 @@ class Surf extends Component {
         timerRunning: false,
         timerInterval: null,
         timerIntervalMS: null,
+        isWUpopulated: false,
+        isNOAAtempPopulated: false,
+        isNOAAtidesPopulated: false,
+        isMagicSeaweedPopulated: false,
         weather: {
             weatherUnderground: {},
             magicSeaweed: {},
@@ -19,38 +25,38 @@ class Surf extends Component {
     styles = {
         baseText: {
             fontFamily: "Cormorant Garamond",
-            fontColor: 'darkgrey'
+            fontColor: 'darkgrey',
         }
     }
 
-    componentDidMount(){
-        this.setState({timerInterval: APIKEYS.timerIntervalMinutes}, function(){
-            console.log("component mounted, state updated: ",this.state.timerInterval)
-           
+    componentDidMount() {
+        this.setState({ timerInterval: APIKEYS.timerIntervalMinutes }, function () {
+            console.log("component mounted, state updated: ", this.state.timerInterval)
+            this.startTimer();
+
         })
-        
+
     }
 
     startTimer = () => {
-        let timer = this.state.timerInterval*60000         //convert minutes to milliseconds
+        let timer = this.state.timerInterval * 60000         //convert minutes to milliseconds
         console.log(`timer: ${timer}`)
         if (typeof timer === "number") {   //makes sure timer is a number
-            this.setState({timerRunning: true, timerIntervalMS: timer}, function(){
+            this.setState({ timerRunning: true, timerIntervalMS: timer }, function () {
                 this.timerHandler()
                 console.log("timer is running")
             })
         }
-        
+
     }
 
     timerHandler = () => {
-        setInterval(this.runAPIs(),this.state.timerIntervalMS)  //starts the API pulls
+        setInterval(this.runAPIs(), this.state.timerIntervalMS)  //starts the API pulls
     }
 
     runAPIs = () => {
-
-        API.getWU().then( results => {
-            console.log("WU",results.data)
+        API.getWU().then(results => {
+            console.log("WU", results.data)
             let newWeather = { ...this.state.weather.weatherUnderground } // makes a copy if the current weather
             newWeather.currentObservation = results.data.current_observation
             newWeather.forecast = results.data.forecast
@@ -62,56 +68,109 @@ class Surf extends Component {
             newWeather.sunrise = moment(results.data.sun_phase.sunrise.hour + ":" + results.data.sun_phase.sunrise.minute, "HH:mm")
             let now = new Date()
             if (moment(newWeather.sunset).isAfter(now)) {
-                newWeather.daytime = true;
+                newWeather.daytime = true;        //sets the icon
             }
             else {
                 newWeather.daytime = false;
             }
-            let newWeatherObject = {...this.state.weather}
+            let newWeatherObject = { ...this.state.weather }  // pulls the whole weather object, copies the new data into it to send back to state
             newWeatherObject.weatherUnderground = newWeather
             this.setState({
                 weather: newWeatherObject,
-                isWeatherPopulated: true,  //sets the flag so conditional rendering works
+                isWUpopulated: true,  //sets the flag so conditional rendering works
             }, () => {
-                console.log('state updated with new weather info')
+                console.log('state updated with new WU  info')
             })
 
 
-        }).catch(err=>{
+        }).catch(err => {
             if (err) throw err;
         })
 
-        API.getNOAAtemperature().then( results => {
-            console.log("temp",results.data)
-        }).catch(err=>{
+        API.getNOAAtemperature().then(results => {
+            console.log("temp", results.data)
+            let newWeather = { ...this.state.weather }
+            newWeather.noaaTemperature = results.data
+            this.setState({ weather: newWeather, isNOAAtempPopulated: true }, () => {
+                console.log('state updated with new noaa temp info')
+            })
+        }).catch(err => {
             if (err) throw err;
         })
 
-        API.getNOAAtides().then( results => {
-            console.log("tide",results.data)
-        }).catch(err=>{
+        API.getNOAAtides().then(results => {
+            console.log("tide", results.data)
+            let newTides = { ...this.state.weather }
+            newTides.noaaTides = results.data
+            this.setState({ weather: newTides, isNOAAtidesPopulated: true }, () => {
+                console.log('state updated with new noaa tide info')
+            })
+        }).catch(err => {
             if (err) throw err;
         })
 
-        API.getMagicSeaweed().then( results => {
-            console.log("seaweed",results)
-        }).catch(err=>{
+        API.getMagicSeaweed().then(results => {
+            console.log("seaweed", results)
+            let newMagic = { ...this.state.weather }
+            newMagic.magicSeaweed = results.data
+            newMagic.magicSeaweed.spotID = APIKEYS.magicSeaweedSpotName
+            this.setState({
+                weather: newMagic, isMagicSeaweedPopulated: true
+            }, () => {
+                console.log("state updated with new magic seaweed info")
+            })
+        }).catch(err => {
             if (err) throw err;
         })
     }
 
     render() {
         return (
-            <Grid>
-                <Row>
+            <Row style={this.styles.baseText}>
+                {/* condtionally render the top row, if there is data */}
+                {this.state.isWUpopulated ? (
+                    <TopRow
+                        weather={this.state.weather.weatherUnderground}
+                        beaufort={this.state.weather.weatherUnderground.beaufort}
+                        style={this.styles}
+                        daytime={this.state.weather.weatherUnderground.daytime}
+                        sunset={this.state.weather.weatherUnderground.sunset}
+                        sunrise={this.state.weather.weatherUnderground.sunrise}
+                        spotID={this.state.weather.magicSeaweed.spotID}
+                        moon={this.state.weather.weatherUnderground.moonPhase} />
+                ) : null
+                }
+                <hr />
+                <h2> Tide Conditions Here </h2>
+                <p> Water Temp and Gear, Current Tide, Current Tide %, Next  Tide </p>
+                <hr />
+                <h2> PeriodicForecast </h2>
+                <hr />
+                <h2> Daily Forecast </h2>
+                {/* {this.state.weather.currentObservation ? (
+                            <HOC>
+                                <TopRow
+                                    weather={this.state.weather}
+                                    beaufort={this.state.weather.beaufort}
+                                    style={this.styles}
+                                    daytime={this.state.weather.daytime}
+                                    sunset={this.state.weather.sunset}
+                                    sunrise={this.state.weather.sunrise} />
 
-                </Row>
+                                <CurrentConditions
+                                    weather={this.state.weather.currentObservation}
+                                    daytime={this.state.weather.daytime} />
+                            </HOC>) : null}
 
-                    <Button 
-                    onClick={this.startTimer}
-                    bsSize="large" 
-                    bsStyle="info"> Get Data (in Console.log) </Button> 
-            </Grid>
+                        {this.state.weather.forecast ? (
+                            <TextForecast forecast={this.state.weather.forecast} />) : null}
+
+                        {this.state.isWeatherPopulated ?
+                            (<PeriodicForecast forecast={this.state.weather.forecastPeriodic} />) : null}
+
+                        {this.state.isWeatherPopulated ?
+                            (<DailyForecast forecast={this.state.weather.forecastDaily} />) : null} */}
+            </Row>
         );
     }
 }

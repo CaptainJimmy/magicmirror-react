@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import moment from 'moment';
 import MoonIcon from './Subcomponents/MoonIcon'
 
@@ -13,7 +13,6 @@ const topRow = (props) => {
     }
     
  return (
-    <Col>
         <Row>
              <Col xs={1} style={moonStyle} />
              <Col xs={1} style={moonStyle}>
@@ -35,7 +34,6 @@ const topRow = (props) => {
             </Col>
              <Col xs={1} style={moonStyle} />   
          </Row> 
-    </Col>
  )
 }
 
