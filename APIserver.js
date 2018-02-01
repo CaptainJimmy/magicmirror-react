@@ -16,10 +16,7 @@ app.use(cors());
 
 app.get('/magic', (req,res,next) => {
     var magicSeaweedURL = encodeURI("http://magicseaweed.com/api/"+APIkeys.magicSeaweedKey+"/forecast/?spot_id="+APIkeys.magicSeaweedSpotID);
-
-    console.log(magicSeaweedURL)
     axios.get(magicSeaweedURL).then(results =>{
-        console.log(results)
         res.json(results.data)
     }).catch( err => {
         if (err) res.json(err)

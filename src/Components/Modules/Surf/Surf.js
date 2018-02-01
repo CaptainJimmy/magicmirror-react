@@ -3,7 +3,7 @@ import { Row } from 'react-bootstrap'
 import API from '../../../Utils/API'
 import APIKEYS from '../../../Utils/APIkeys'
 import moment from 'moment'
-import { TopRow } from './Rows/TopRow';
+import { TopRow, CurrentTide } from './Rows';
 
 
 class Surf extends Component {
@@ -138,11 +138,12 @@ class Surf extends Component {
                         sunrise={this.state.weather.weatherUnderground.sunrise}
                         spotID={this.state.weather.magicSeaweed.spotID}
                         moon={this.state.weather.weatherUnderground.moonPhase} />
-                ) : null
-                }
-                <hr />
-                <h2> Tide Conditions Here </h2>
-                <p> Water Temp and Gear, Current Tide, Current Tide %, Next  Tide </p>
+                ) : null }
+                { this.state.isNOAAtidesPopulated ? (
+                    <CurrentTide 
+                        tides={this.state.weather.noaaTides}
+                        temps={this.state.weather.noaaTemperature} /> 
+                ) : null }
                 <hr />
                 <h2> PeriodicForecast </h2>
                 <hr />

@@ -35,18 +35,18 @@ const topRow = props => {
                         <h3 style={brightStyle}>{props.weather.currentObservation.temp_f}&deg;F </h3>
                     </Col>
                     <Col style={topStyle} xs={1}>
-                        <h4><i className={beaufort} /></h4>
+                        <h3><i className={beaufort} /></h3>
                     </Col>
                     <Col style={topStyle} xs={1}>    
-                        <h4><i className={windDirection} /></h4>
+                        <h3><i className={windDirection} /></h3>
                     </Col>
                     <Col style={topStyle} xs={1}>
-                        <h4><i className="wi wi-humidity" />{props.weather.currentObservation.relative_humidity.substring(0, props.weather.currentObservation.relative_humidity.length - 1)} </h4>
+                        <h3><i className="wi wi-humidity" />{props.weather.currentObservation.relative_humidity.substring(0, props.weather.currentObservation.relative_humidity.length - 1)} </h3>
                     </Col>
                     <Col style={topStyle} xs={2}>
                         {props.daytime ?
-                            (<h4><i className="wi wi-sunset" /> {moment(props.sunset).format("HH:mm")} </h4>) :
-                            (<h4><i className="wi wi-sunrise" /> {moment(props.sunrise).format("HH:mm")} </h4>)}
+                            (<h3><i className="wi wi-sunset" /> {moment(props.sunset).format("HH:mm")} </h3>) :
+                            (<h3><i className="wi wi-sunrise" /> {moment(props.sunrise).format("HH:mm")} </h3>)}
                     </Col>
                     <Col style={topStyle} xs={2}>
                         <MoonIcon day={parseInt(props.weather.moonPhase.ageOfMoon, 10)} />
