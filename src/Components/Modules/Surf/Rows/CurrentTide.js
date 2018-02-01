@@ -24,5 +24,5 @@ const currentTide = props => {
         <p> Water Temp and Gear, Current Tide, Current Tide %, Next  Tide </p> */}
     </Row>
     )
-
-export { currentTide as CurrentTide };
+}
+    export { currentTide as CurrentTide };

@@ -73,7 +73,6 @@ class Wunderground extends Component {
             newWeather.forecastDaily = [];
             results.data.forecast.simpleforecast.forecastday.map( (item,index)=> {
                 if (newWeather.forecastDaily.length < 4) {
-                    console.log(`Pushing Item at ${index}, array is length: ${newWeather.forecastDaily.length}`)
                     newWeather.forecastDaily.push(item)
                     return true
                 }
@@ -85,7 +84,6 @@ class Wunderground extends Component {
             newWeather.forecastPeriodic = [];
             results.data.hourly_forecast.map( (item,index) => {
                 if (config.periodicHours.indexOf(item.FCTTIME.hour) !== -1 && newWeather.forecastPeriodic.length < 4) {
-                    console.log(`Pushing Item ${item.FCTTIME.hour} check good, at ${index} to forecastPeriodic with length = ${newWeather.forecastPeriodic.length}`);
                     newWeather.forecastPeriodic.push(item)
                     return true
                 }
