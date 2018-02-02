@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Row, Col } from 'react-bootstrap'
 import HOC from '../HOC/HOC'
 import MoonIcon from './Subcomponents/MoonIcon'
@@ -10,7 +10,7 @@ const topRow = props => {
     let newURL = encodeURI("/img/VCloudsWeatherIcons/" + imgURL[imgURL.length - 1].split(".")[0] + ".png")
     let beaufort = "wi wi-wind-beaufort-" + props.beaufort
     let windDirection = "wi wi-wind from-" + props.weather.currentObservation.wind_degrees + "-deg"  
-    let now = new Date();   
+    //let now = new Date();   
     let brightStyle= {
         color: 'white',
         fontWeight: '800'
