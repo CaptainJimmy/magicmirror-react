@@ -1,5 +1,5 @@
 # magicmirror-react
-## Updated 01/26/2018
+## Updated 02/03/2018
 
 ## This is a re-design of the Magic Mirror project to make installation, deployment, and custom modules / components much easier.
 
