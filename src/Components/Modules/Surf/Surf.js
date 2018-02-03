@@ -19,7 +19,7 @@ class Surf extends Component {
             weatherUnderground: {},
             magicSeaweed: {},
             noaaTemperature: {},
-            noaaTides: {}
+            noaaTides: []
         }
     }
     styles = {
@@ -101,7 +101,7 @@ class Surf extends Component {
         API.getNOAAtides().then(results => {
             console.log("tide", results.data)
             let newTides = { ...this.state.weather }
-            newTides.noaaTides = results.data
+            newTides.noaaTides = results.data.predictions
             this.setState({ weather: newTides, isNOAAtidesPopulated: true }, () => {
                 console.log('state updated with new noaa tide info')
             })

@@ -63,7 +63,7 @@ Original Link: [https://github.com/RedNax67/MMM-WunderGround](https://github.com
 Original Link:[https://github.com/MichMich/MagicMirror/tree/master/modules/default/currentweather](https://github.com/MichMich/MagicMirror/tree/master/modules/default/currentweather)
 
 #### MMM-Surf
-### In Progress
+### In Progress: 50% complete
 Original Link: [https://github.com/Privacywonk/MMM-Surf](https://github.com/Privacywonk/MMM-Surf)
 
 #### Newsfeed
